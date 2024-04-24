@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Puggy</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.11.0/firebase-app-compat.js"></script>
@@ -17,35 +17,21 @@
     <script defer src="/__/firebase/10.11.0/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/10.11.0/firebase-remote-config-compat.js"></script>
     <script defer src="/__/firebase/10.11.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script src=https://unpkg.com/htmx.org@1.9.11 integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
     <script src=https://cdn.tailwindcss.com></script>
   </head>
-  <body>
-    <div class="border-1 border-lime-500 w-96 mx-auto my-5 content-center">
-      <form hx-get="http://localhost:5001/firetest-bogz/us-central1/test" hx-target="#userList" hx-swap="beforebegin">
-        <div>
-          <label>Name</label>
-          <input type="text" name="name" value="">
-        </div>
-        <div>
-          <label>Major</label>
-          <input type="text" name="major" value="">
-        </div>
-        <div>
-          <label>Quote</label>
-          <input type="text" name="quote" value="">
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+  <body hx-get="http://localhost:5000/firetest-bogz/us-central1/home" hx-target="#main" hx-trigger="load">
+    <div class="bg-white w-2/5 float-end">
+      <div class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+        <a hx-get="http://localhost:5000/firetest-bogz/us-central1/home" hx-target="#main" class="text-sm font-semibold leading-6 text-stone-800 cursor-pointer"> Home </a>
+        <a hx-get="http://localhost:5000/firetest-bogz/us-central1/about" hx-target="#main" class="text-sm font-semibold leading-6 text-stone-800 cursor-pointer"> About </a>
+        <a hx-get="http://localhost:5000/firetest-bogz/us-central1/contact" hx-target="#main" class="text-sm font-semibold leading-6 text-stone-800 cursor-pointer"> Contact </a>
+      </div>
     </div>
 
-    <div class="users">
-      <br id="userList" />
+    <div class="pt-20" id="main">
+
     </div>
   </body>
 </html>
